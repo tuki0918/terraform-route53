@@ -1,0 +1,31 @@
+image: terraform
+
+stages:
+  - plan
+  - apply
+
+terraform-plan-xor.pics:
+  stage: plan
+  cache:
+    key: xor.pics
+    untracked: true
+  script:
+    - cd terraform/xor.pics
+    - terraform plan
+  tags:
+    - docker
+  when: always
+
+terraform-apply-xor.pics:
+  stage: apply
+  cache:
+    key: xor.pics
+    untracked: true
+  script:
+    - cd terraform/xor.pics
+    - terraform apply
+  only:
+    - master
+  tags:
+    - docker
+  when: on_success

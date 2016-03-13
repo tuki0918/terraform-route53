@@ -31,7 +31,7 @@ resource "aws_route53_record" "iideacraft-com-TXT" {
     zone_id = "ZL301KJ4U89DL"
     name    = "iideacraft.com"
     type    = "TXT"
-    records = ["v=spf1 a mx ~all]
+    records = ["v=spf1 a mx ~all"]
     ttl     = "300"
 
 }
